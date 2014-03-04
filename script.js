@@ -13,7 +13,6 @@ var initialize = function () {
   };
   map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
   geocoder = new google.maps.Geocoder();
-
 }
 
 var loadAddresses = function(addresses){
@@ -47,8 +46,8 @@ var loadMarker = function(address) {
 
 google.maps.event.addDomListener(window, 'load', initialize);
 
-var inputElement = document.getElementById("file");
-inputElement.addEventListener("change", handleFiles, false);
+// var inputElement = document.getElementById("file");
+// inputElement.addEventListener("change", handleFiles, false);
 function handleFiles() {
   var result;
   reader.readAsBinaryString(this.files[0]);
@@ -57,3 +56,14 @@ function handleFiles() {
     loadAddresses(result);
   }
 }
+
+jQuery( document ).ready(function( $ ) {
+  $('#q').keypress(function (e) {
+    if (e.which === 13) {
+      e.preventDefault();
+      // go do the search
+      var query = $(this).val();
+      $('.results').html('searching for ' + query + '...');
+    }
+  });
+});

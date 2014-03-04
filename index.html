@@ -1,14 +1,19 @@
 <!doctype html>
+<html>
 <head>
 	<title>CS Senior Sem</title>
 	<link href="style.css" rel="stylesheet"/>
 </head>
 <body>
-	<input type="text" id="search" placeholder="search" />
+	<form id="search">
+		<input type="text" id="q" name="q" placeholder="search..." />
+	</form>
+	<div class="results"></div>
 	<div id="map-canvas"></div>
-
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
 	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAhy_u6iBScJhtOUbhmiPw0V0S8Ilomd-k&sensor=false">
 	</script>
 	<script type="text/javascript" src="http://build.tridnguyen.com/burnett/csv.js"></script>
 	<script type="text/javascript" src="script.js"></script>
 </body>
+</html>
