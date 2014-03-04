@@ -64,6 +64,13 @@ jQuery( document ).ready(function( $ ) {
       // go do the search
       var query = $(this).val();
       $('.results').html('searching for ' + query + '...');
+      $.ajax({
+        url: 'http://cs-senior-sem-imdb.herokuapp.com/movies/' + query,
+        success: function(resp) {
+          var addresses = JSON.parse(resp);
+          loadAddresses(addresses);
+        }
+      })
     }
   });
 });
