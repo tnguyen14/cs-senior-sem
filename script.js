@@ -1,5 +1,6 @@
 var geocoder,
     map,
+    markers = [],
     center = {
       lat: 39.8282,
       lng: -98.5795,
@@ -16,8 +17,17 @@ var initialize = function () {
 }
 
 var loadAddresses = function(addresses){
+  // remove previous markers
+  setMarkers(null);
+  markers = [];
   for (var i = 0; i < addresses.length; i++) {
     loadMarker(addresses[i]);
+  }
+}
+
+function setMarkers(map) {
+  for (var i = 0; i < markers.length; i++) {
+    markers[i].setMap(map);
   }
 }
 
@@ -38,6 +48,8 @@ var loadMarker = function(address) {
         position: results[0].geometry.location,
         icon: icon
       });
+      markers.push(marker);
+      console.log(marker);
     } else {
 
     }
@@ -69,8 +81,13 @@ jQuery( document ).ready(function( $ ) {
         success: function(resp) {
           var addresses = JSON.parse(resp);
           loadAddresses(addresses);
+          $('.results').html('filming locations found and displayed on the map.');
+        },
+        error: function(jqxhr, status, error) {
+           $('.results').html(status);
+           console.log(error);
         }
-      })
+      });
     }
   });
 });
