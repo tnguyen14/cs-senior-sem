@@ -49,7 +49,6 @@ var loadMarker = function(address) {
         icon: icon
       });
       markers.push(marker);
-      console.log(marker);
     } else {
 
     }
@@ -89,5 +88,15 @@ jQuery( document ).ready(function( $ ) {
         }
       });
     }
+  });
+  $('#montana').on('click', function() {
+    $.ajax({
+      url: 'http://cs-senior-sem-imdb.herokuapp.com/movies/montana',
+      success: function(resp) {
+        var locations = JSON.parse(resp);
+        console.log(locations);
+        loadAddresses(locations);
+      }
+    });
   });
 });
