@@ -6,11 +6,6 @@ jQuery('document').ready(function($) {
     todayHighlight: true
   });
 
-  $('.add-theater .btn, .add-movie .btn').on('click', function(e) {
-    e.preventDefault();
-    var $form = $(e.target).siblings('.form');
-    $form.toggle();
-  });
   $('.theater-map').locationpicker({
     enableAutocomplete: true,
     radius: 300,
@@ -21,7 +16,6 @@ jQuery('document').ready(function($) {
       latitudeInput: $('.theater-lat')
     }
   });
-
   var rottenTomatoesApi = '5egt22fx3f6phsqdujwch8js';
   var movies = new Bloodhound({
     datumTokenizer: Bloodhound.tokenizers.obj.whitespace('value'),

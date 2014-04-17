@@ -2,15 +2,15 @@ var geocoder,
     map,
     markers = [],
     center = {
-      lat: 39.8282,
-      lng: -98.5795,
+      lat: 41.967269,
+      lng: -71.184955,
     },
     reader = new FileReader();
 
 var initialize = function () {
   var mapOptions = {
     center: new google.maps.LatLng(center.lat, center.lng),
-    zoom: 4
+    zoom: 8
   };
   map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
   geocoder = new google.maps.Geocoder();

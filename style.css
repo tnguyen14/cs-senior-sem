@@ -17,7 +17,6 @@ body {
 }
 .add-movie .form,
 .add-theater .form {
-  display: none;
   margin-top: 2em;
 }
 
