@@ -1,20 +1,68 @@
 <!doctype html>
 <html>
 <head>
-	<title>CS Senior Sem</title>
-	<link href="style.css" rel="stylesheet"/>
+  <link rel="stylesheet" type="text/css" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.css" />
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker3.min.css" />
+  <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 <body>
-	<form id="search">
-		<input type="text" id="q" name="q" placeholder="search..." />
-	</form>
-	<button id="montana">Get Montana movies</button>
-	<div class="results"></div>
-	<div id="map-canvas"></div>
-	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
-	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAhy_u6iBScJhtOUbhmiPw0V0S8Ilomd-k&sensor=false">
-	</script>
-	<script type="text/javascript" src="http://build.tridnguyen.com/burnett/csv.js"></script>
-	<script type="text/javascript" src="script.js"></script>
+  <div class="container">
+    <div class="add-movie">
+      <button class="btn btn-primary btn-lg">Search a movie</button>
+      <form class="form">
+        <div class="form-group">
+          <label class="control-label" for="movie-name">Movie Name</label>
+          <input type="text" class="movie-name form-control" name="movie-name"/>
+        </div>
+        <div class="form-group">
+          <label class="control-label" for="release-date">Release Date</label>
+          <div class="input-group date">
+            <input type="text" class="form-control"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label" for="imdb-link">IMDb Link</label>
+          <input type="text" class="form-control" name="imdb-link"/>
+        </div>
+      </form>
+    </div>
+    <div class="add-theater">
+      <button class="btn btn-success btn-lg">Add a theater</button>
+      <form class="form">
+        <div class="form-group">
+          <label class="control-label" for="theater-name">Theater Name</label>
+          <input type="text" class="form-control" name="theater-name"/>
+        </div>
+        <div class="form-group">
+          <label class="control-label" for="theater-address">Theater Location</label>
+          <input type="text" class="theater-address form-control"/>
+        </div>
+        <div class="form-group clearfix">
+          <label class="col-sm-2">Longitude</label>
+          <div class="col-sm-4">
+            <input type="text" class="theater-long form-control" placeholder="Long."/>
+          </div>
+          <label class="col-sm-2">Latitude</label>
+          <div class="col-sm-4">
+            <input type="text" class="theater-lat form-control" placeholder="Lat."/>
+          </div>
+        </div>
+        <div class="theater-map"></div>
+        <div class="form-group">
+          <label class="control-label">Resource Link (cinematreasures.org etc.)</label>
+          <input type="text" class="form-control" name="resource-link"/>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js"></script>
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
+  <script type="text/javascript" src="http://logicify.github.io/jquery-locationpicker-plugin/js/locationpicker.jquery.js"></script>
+  <script type="text/javascript" src="http://twitter.github.com/typeahead.js/releases/latest/typeahead.bundle.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0-alpha.1/handlebars.min.js"></script>
+  <script type="text/javascript" src="movie.js"></script>
 </body>
 </html>
