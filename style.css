@@ -2,6 +2,12 @@ body {
   height: 100%
 }
 
+#q {
+  padding: 0.5em;
+  margin: 1em;
+  width: 30%;
+}
+
 #map-canvas {
   width: 100%;
   height: 30em;
