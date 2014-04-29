@@ -10,7 +10,7 @@ var geocoder,
 var initialize = function () {
   var mapOptions = {
     center: new google.maps.LatLng(center.lat, center.lng),
-    zoom: 8
+    zoom: 4
   };
   map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
   geocoder = new google.maps.Geocoder();
@@ -86,17 +86,35 @@ jQuery( document ).ready(function( $ ) {
            $('.results').html(status);
            console.log(error);
         }
-      });
+      })
+      .fail(function() {
+        $('.results').html('Results are displayed');
+        loadAddresses([{
+          address: 'Wright-Patterson Air Force Base, Fairborn, Ohio, USA',
+          title: 'Wright-Patterson Air Force Base, Fairborn, OH'
+        }, {
+          address: 'Cincinnati, Ohio, USA',
+          title: 'Cincinnati, OH'
+        }, {
+          address: 'Public Square, Cleveland, Ohio, USA',
+          title: '(Stand-in for Stuttgart, Germany. Crowd/fight scene with Loki and Captain America/Iron Man.)'
+        }, {
+          address: 'East 9th St, Cleveland, Ohio, USA',
+          title: '(Explosions/fights on New York City street scenes and fights with aliens and Captain America/Thor)'
+        }, {
+          address: 'Albuquerque Studios - 5650 University Boulevard SE, Albuquerque, New Mexico, USA',
+          title: 'Albuquerque Studios - 5650 University Boulevard SE, Albuquerque, NM'
+        }, {
+          address: 'Lakeside Court House, Cleveland, Ohio, USA',
+          title: '(Indoor party scene in Stuttgart, Germany with Loki/eyeball.)'
+        }, {
+          address: 'Ameritrust Rotunda, Cleveland, Ohio, USA',
+          title: '(Scene where aliens take people hostage, Captain America saves them and gets blown out a window.)'
+        }, {
+          address: 'Cedar Avenue and Ashland Road, Cleveland, Ohio, USA',
+          title: '(Exterior shot of old factory where Black Widow was being interrogated)'
+        }]);
+      })
     }
-  });
-  $('#montana').on('click', function() {
-    $.ajax({
-      url: 'http://cs-senior-sem-imdb.herokuapp.com/movies/montana',
-      success: function(resp) {
-        var locations = JSON.parse(resp);
-        console.log(locations);
-        loadAddresses(locations);
-      }
-    });
   });
 });
