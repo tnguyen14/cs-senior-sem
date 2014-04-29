@@ -8,15 +8,31 @@ var states = [
     fips: "06",
     name: "California",
     code: "CA"
+  },
+  {
+    fips: "39",
+    name: "Ohio",
+    code: "OH"
+  },
+  {
+    fips: "48",
+    name: "Texas",
+    code: "TX"
   }
 ];
 
 var movies = {
   "CA": {
-    numTheaters: 40
+    numTheaters: 39
   },
   "NY": {
-    numTheaters: 50
+    numTheaters: 46
+  },
+  "OH": {
+    numTheaters: 20
+  },
+  "TX": {
+    numTheaters: 28
   }
 };
 
