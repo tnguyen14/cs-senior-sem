@@ -13,6 +13,17 @@ body {
   height: 30em;
 }
 
+#states-map {
+  margin: 0 auto;
+  width: 80%;
+}
+
+#state-tooltip {
+  box-shadow: 0 0 4px rgba(0,0,0,0.4);
+  display: none;
+  position: absolute;
+}
+
 .container {
   margin: 2em 5em;
 }
