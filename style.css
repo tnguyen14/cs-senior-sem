@@ -1,9 +1,9 @@
 body {
-  height: 100%
+  height: 100%;
+  margin: 1em;
 }
 
 #q {
-  padding: 0.5em;
   margin: 1em;
   width: 30%;
 }
@@ -25,7 +25,7 @@ body {
 }
 
 .container {
-  margin: 2em 5em;
+  margin: 1em 5em;
 }
 
 .add-movie,
